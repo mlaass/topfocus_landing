@@ -46,10 +46,7 @@
       </div>
     </div>
   </section>
-
-  <!-- Why Choose Our Solutions -->
-  {{ partial "sections/why-choose" .Params.benefits }}
-
+  {{ partial "sections/solutions" . }}
   <!-- Development Services Sections -->
   {{ range $index, $service := .Params.services.items }}
   <section

@@ -54,7 +54,7 @@ services:
         - "Progressive Web Apps"
         - "Cross-browser Compatibility"
       image: "/img/frontend-dev.png"
-      
+
     - name: "Backend Development"
       description: "Robust and scalable server-side solutions"
       features:
@@ -65,7 +65,7 @@ services:
         - "Performance Tuning"
         - "Security Implementation"
       image: "/img/backend-dev.png"
-      
+
     - name: "Full-Stack Solutions"
       description: "Complete applications built from the ground up"
       features:
@@ -118,20 +118,33 @@ cases:
   heading: "Success Stories"
   text: "Real results from our client projects"
   items:
-    - name: "E-commerce Platform"
-      description: "Built a scalable e-commerce platform with advanced inventory management"
+    - name: "Coaching Platform"
+      description: "Built a platform with advanced coaching, client specific reports and a dashboard for the coaches."
       metrics:
-        - label: "Processing Speed"
-          value: "3x"
-        - label: "Cost Reduction"
-          value: "65%"
-    - name: "SaaS Dashboard"
-      description: "Replaced no-code tools with custom solution for better performance"
+        - label: "Client Volume"
+          value: "100%"
+        - label: "Client Processing Speed"
+          value: "5x"
+    - name: "IOT Management Dashboard"
+      description: "Built a dashboard for managing IoT devices and sensors."
       metrics:
-        - label: "Annual Savings"
-          value: "$30K"
-        - label: "Load Time"
-          value: "0.8s"
+        - label: "IOT Devices"
+          value: "Custom"
+
+    - name: "Accounting Learning Platform"
+      description: "Built a platform for training accounting clerks. The clerks can now learn the accounting principles and apply them in a real-time environment."
+      metrics:
+        - label: "Onboarding Clerks Speedup"
+          value: "6 months"
+        - label: "Client Processing"
+          value: "2x"
+    - name: "AI Textbook Generator"
+      description: "Built a platform for generating textbooks with AI."
+      metrics:
+        - label: "Textbook Generation Speed"
+          value: "10x"
+        - label: "Textbook Quality"
+          value: "100%"
 
 cta:
   heading: "Start Your Project"
@@ -143,4 +156,4 @@ cta:
     - text: "View Boilerplate"
       url: "/boilerplate"
       primary: false
---- 
+---
