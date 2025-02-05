@@ -6,7 +6,7 @@ layout: boilerplate
 hero:
   heading: "Launch Your SaaS Faster"
   text: "A complete, production-ready boilerplate that includes everything you need to build a modern SaaS application."
-  image: "/img/boilerplate-hero.png"
+  image: "/img/hero_boilerplate_01.png"
 
 features:
   - name: "Frontend Stack"
@@ -73,4 +73,4 @@ cta:
     - text: "Book Demo"
       url: "https://calendly.com/moritzlaass"
       primary: false
---- 
+---

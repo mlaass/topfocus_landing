@@ -6,7 +6,7 @@ layout: solutions
 hero:
   heading: "Build & Scale Your Digital Products"
   text: "From custom development to SaaS optimization, we help businesses build efficient and scalable digital solutions."
-  image: "/img/solutions-hero.png"
+  image: "/img/hero_02.png"
 
 solutions:
   heading: "Our Solutions"
@@ -53,7 +53,7 @@ services:
         - "UI/UX Implementation"
         - "Progressive Web Apps"
         - "Cross-browser Compatibility"
-      image: "/img/frontend-dev.png"
+      image: "/img/frontend_01.png"
 
     - name: "Backend Development"
       description: "Robust and scalable server-side solutions"
@@ -64,7 +64,7 @@ services:
         - "Cloud Infrastructure"
         - "Performance Tuning"
         - "Security Implementation"
-      image: "/img/backend-dev.png"
+      image: "/img/backend_02.png"
 
     - name: "Full-Stack Solutions"
       description: "Complete applications built from the ground up"
@@ -75,7 +75,7 @@ services:
         - "Testing & QA"
         - "Deployment & DevOps"
         - "Maintenance & Support"
-      image: "/img/fullstack-dev.png"
+      image: "/img/fullstack_02.png"
 
 process:
   heading: "Our Development Process"
