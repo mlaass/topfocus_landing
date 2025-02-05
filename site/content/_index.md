@@ -5,7 +5,14 @@ description: Optimize your SaaS operations with TopFoc.us. We help no-code busin
 hero:
   heading: Transform Your SaaS Operations
   text: From no-code to optimized solutions – reduce operational costs and maintain quality with our expert consultation and custom development services.
-  image: /img/dashboard-mockup.png
+  image: /img/hero_01.png
+  buttons:
+    - text: "Explore Solutions"
+      url: "/solutions"
+      primary: true
+    - text: "Get Boilerplate"
+      url: "/boilerplate"
+      primary: false
 
 solutions:
   heading: SaaS Optimization Solutions
