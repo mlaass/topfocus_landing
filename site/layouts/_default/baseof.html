@@ -1,17 +1,32 @@
-<!doctype html>
-<html lang="{{ $.Site.Language.Lang }}">
-  {{ partial "head" . }}
-  <body class="sans-serif">
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
 
-    {{ block "header" . }}{{ partial "nav" . }}{{end}}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  {{ with .Site.Data.webpack.main.css }}
+  {{ range . }}
+  <link rel="stylesheet" href="{{ (relURL .) }}">
+  {{ end }}
+  {{ end }}
+  {{ with .Site.Params.favicon }}
+  <link rel="icon" href="{{ . }}">
+  {{ end }}
+</head>
 
+<body class="bg-white dark:bg-gray-900">
+  {{ partial "header" . }}
+
+  <main class="container mx-auto px-4 py-8">
     {{ block "main" . }}{{ end }}
+  </main>
 
-    {{ block "footer" . }}{{ partial "footer" . }}{{end}}
+  {{ partial "footer" . }}
 
-    {{ $script := .Site.Data.webpack.main }}
-    {{ with $script.js }}
-      <script src="{{ relURL . }}"></script>
-    {{ end }}
-  </body>
+  {{ with .Site.Data.webpack.main.js }}
+  <script src="{{ relURL . }}"></script>
+  {{ end }}
+</body>
+
 </html>

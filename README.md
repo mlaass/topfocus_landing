@@ -4,7 +4,7 @@ This is a small business template built with [Hugo](https://gohugo.io) and [Deca
 
 ## Getting started
 
-Use our deploy button to get your own copy of the repository. 
+Use our deploy button to get your own copy of the repository.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/decaporg/one-click-hugo-cms&stack=cms)
 
@@ -37,7 +37,7 @@ Cypress tests also run on deploy with the [Cypress Netlify integration](https://
 
 The template is based on small, content-agnostic partials that can be mixed and matched. The pre-built pages showcase just a few of the possible combinations. Refer to the `site/layouts/partials` folder for all available partials.
 
-Use Hugo’s `dict` functionality to feed content into partials and avoid repeating yourself and creating discrepancies.
+Use Hugo's `dict` functionality to feed content into partials and avoid repeating yourself and creating discrepancies.
 
 ## CSS
 
@@ -52,3 +52,17 @@ For an icon named `icons-facebook.svg`, refer to the SVG `social-icon` partial l
 ```
 {{ partial "social-icon" (dict "link" "#" "svg" "icons-facebook" "alt" "Kaldi on Facebook") }}
 ```
+
+## Using a Different Hugo Theme
+
+To use a different Hugo theme with this CMS setup:
+
+1. Install your preferred theme in the `site/themes` directory:
+```bash
+cd site/themes
+git submodule add [theme-repository-url]
+```
+
+2. Update `site/hugo.toml` to use the new theme
+3. Migrate the Decap CMS configuration to match your new theme's content structure
+4. Adjust the webpack configuration if needed for your theme's asset pipeline

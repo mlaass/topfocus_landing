@@ -1,4 +1,3 @@
-const webpack = require("webpack");
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -13,44 +12,44 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, "dist"),
-    publicPath: ""
+    publicPath: "/",
   },
 
   module: {
     rules: [
       {
-        test: /\.((png)|(eot)|(woff)|(woff2)|(ttf)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(png|eot|woff|woff2|ttf|svg|gif)(\?v=\d+\.\d+\.\d+)?$/,
         loader: "file-loader",
         options: {
-          name: "name=/[hash].[ext]"
+          name: "[hash].[ext]"
         }
       },
       {
-        loader: "babel-loader",
-        test: /\.js?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        options: {cacheDirectory: true}
+        use: {
+          loader: "babel-loader",
+          options: {
+            cacheDirectory: true
+          }
+        }
       },
       {
-        test: /\.(sa|sc|c)ss$/,
-        exclude: /node_modules/,
+        test: /\.css$/,
         use: [
-          "style-loader", 
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              esModule: false
-            }
-          }, 
+          MiniCssExtractPlugin.loader,
           "css-loader",
-          "postcss-loader",
           {
-            loader: "sass-loader",
+            loader: "postcss-loader",
             options: {
-              sassOptions: {
-                outputStyle: "expanded",
-              },
-            },
+              postcssOptions: {
+                plugins: [
+                  require("postcss-import"),
+                  require("tailwindcss"),
+                  require("autoprefixer"),
+                ]
+              }
+            }
           }
         ]
       }
@@ -61,17 +60,25 @@ module.exports = {
     new AssetsPlugin({
       filename: "webpack.json",
       path: path.join(process.cwd(), "site/data"),
-      prettyPrint: true
+      prettyPrint: true,
+      entrypoints: true
     }),
+
     new CopyWebpackPlugin({
       patterns: [{
         from: "./src/fonts/",
         to: "fonts/",
       }]
     }),
+
+    new MiniCssExtractPlugin({
+      filename: "css/[name].[contenthash:8].css",
+      chunkFilename: "css/[id].[contenthash:8].css"
+    }),
+
     new HtmlWebpackPlugin({
       filename: "admin/index.html",
-      template: 'src/cms.html',
+      template: "src/cms.html",
       inject: true,
     })
   ]
