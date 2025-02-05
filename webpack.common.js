@@ -59,7 +59,7 @@ module.exports = {
 
   plugins: [
     new webpack.ProvidePlugin({
-      fetch: "imports-loader?imports=default:whatwg-fetch!exports-loader?exports=default:fetch!whatwg-fetch"
+      fetch: ['whatwg-fetch', 'fetch']
     }),
     new AssetsPlugin({
       filename: "webpack.json",
