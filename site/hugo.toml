@@ -3,7 +3,7 @@ languageCode = "en-us"
 languageLang = "en"
 title = "Top Focus"
 author = "Moritz Laass"
-copyright = "Moritz Laass"
+copyright = "Top Focus LLC"
 pagination.pagerSize = 10
 
 # Add your theme
@@ -31,21 +31,25 @@ disableKinds = ["RSS", "taxonomy"]
 
   [params.footer]
     since = 2023
-    poweredby = true
+    poweredby = false
 
 [menu]
-
   [[menu.main]]
-    identifier = "post"
-    name = "Post"
-    pageRef = "/posts"
-    weight = 10
-
+    name = "Home"
+    url = "/"
+    weight = 1
   [[menu.main]]
-    identifier = "about"
-    name = "About"
-    pageRef = "/about"
-    weight = 20
+    name = "Solutions"
+    url = "/solutions"
+    weight = 2
+  [[menu.main]]
+    name = "Boilerplate"
+    url = "#boilerplate"
+    weight = 3
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact"
+    weight = 4
 
 [taxonomies]
 category = "categories"

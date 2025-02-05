@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+<html lang="en" class="">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description"
+    content="Optimize your SaaS operations with TopFoc.us. We help no-code businesses reduce costs and improve efficiency through custom solutions.">
   {{ with .Site.Data.webpack.main.css }}
   {{ range . }}
   <link rel="stylesheet" href="{{ (relURL .) }}">
@@ -15,7 +18,7 @@
   {{ end }}
 </head>
 
-<body class="bg-white dark:bg-gray-900">
+<body class="bg-white">
   {{ partial "header" . }}
 
   <main class="container mx-auto px-4 py-8">

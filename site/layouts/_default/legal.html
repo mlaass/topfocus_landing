@@ -1,0 +1,14 @@
+{{ define "main" }}
+<main class="bg-white">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="mb-4 text-4xl font-extrabold text-slate-700">{{ .Title }}</h1>
+      <p class="mb-8 text-gray-500">Last updated: {{ .Params.lastUpdated }}</p>
+
+      <div class="prose prose-slate max-w-none">
+        {{ .Content }}
+      </div>
+    </div>
+  </div>
+</main>
+{{ end }}

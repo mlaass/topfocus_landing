@@ -1,20 +1,48 @@
 ---
-title: "Great coffee with a conscience"
-subtitle: Support sustainable farming while enjoying a cup
-image: /img/home-jumbotron.jpg
-blurb:
-    heading: Why Kaldi?
-    text: "Kaldi is the coffee store for everyone who believes that great coffee shouldn't just taste good, it should do good too. We source all of our beans directly from small scale sustainable farmers and make sure part of the profits are reinvested in their communities."
-intro:
-    heading: "What we offer"
-    text: "Kaldi is the ultimate spot for coffee lovers who want to learn about their java’s origin and support the farmers that grew it. We take coffee production, roasting and brewing seriously and we’re glad to pass that knowledge to anyone."
-products:
-    - image: img/illustrations-coffee.svg
-      text: "We sell green and roasted coffee beans that are sourced directly from independent farmers and farm cooperatives. We’re proud to offer a variety of coffee beans grown with great care for the environment and local communities. Check our post or contact us directly for current availability."
-    - image: /img/illustrations-coffee-gear.svg
-      text: "We offer a small, but carefully curated selection of brewing gear and tools for every taste and experience level. No matter if you roast your own beans or just bought your first french press, you’ll find a gadget to fall in love with in our shop."
-values:
-    heading: Our values
-    text: Coffee is an amazing part of human culture but it has a dark side too – one of colonialism and mindless abuse of natural resources and human lives. We want to turn this around and return the coffee trade to the drink’s exhilarating, empowering and unifying nature.
+title: "Transform Your SaaS Operations"
+subtitle: From no-code to optimized solutions
+description: Optimize your SaaS operations with TopFoc.us. We help no-code businesses reduce costs and improve efficiency through custom solutions.
+hero:
+  heading: Transform Your SaaS Operations
+  text: From no-code to optimized solutions – reduce operational costs and maintain quality with our expert consultation and custom development services.
+  image: /img/dashboard-mockup.png
+
+solutions:
+  heading: SaaS Optimization Solutions
+  text: We help you identify cost-saving opportunities and implement efficient solutions tailored to your business needs.
+  items:
+    - title: Cost Analysis
+      text: Comprehensive review of your current no-code stack and operational costs to identify optimization opportunities.
+    - title: Custom Solutions
+      text: Development and implementation of tailored solutions to replace expensive no-code tools while maintaining functionality.
+    - title: Maintenance & Support
+      text: Ongoing maintenance and support for implemented solutions, ensuring smooth operations and continuous optimization.
+
+boilerplate:
+  heading: SaaS Boilerplate Package
+  text: Launch your SaaS faster with our production-ready boilerplate. Complete with all essential features and best practices.
+  frontend:
+    - SvelteKit & Flowbite Setup
+    - Responsive UI Components
+    - Authentication Flow
+    - User Dashboard
+    - CRUD Views
+  backend:
+    - FastAPI & PostgreSQL
+    - User Management
+    - OAuth Integration
+    - Stripe Integration
+    - API Documentation
+
+contact:
+  heading: Ready to optimize your SaaS?
+  text: Get started with a free consultation or explore our boilerplate package.
+  buttons:
+    - text: Book Consultation
+      url: "#"
+      primary: true
+    - text: Get Boilerplate Package
+      url: "#"
+      primary: false
 ---
 

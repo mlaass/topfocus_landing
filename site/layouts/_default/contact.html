@@ -1,0 +1,72 @@
+{{ define "main" }}
+<main>
+  <!-- Hero Section -->
+  <section class="bg-white">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+      <div class="max-w-screen-md mx-auto text-center">
+        <h1 class="mb-4 text-4xl font-extrabold leading-none text-slate-700 md:text-5xl lg:text-6xl">
+          {{ .Params.hero.heading }}
+        </h1>
+        <p class="mb-8 text-gray-500 sm:text-xl">{{ .Params.hero.text }}</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <!-- Contact Form -->
+      <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+        <h2 class="mb-4 text-3xl font-bold text-slate-700">{{ .Params.form.heading }}</h2>
+        <p class="mb-6 text-gray-500">{{ .Params.form.text }}</p>
+
+        <form name="contact" method="POST" data-netlify="true" class="space-y-6">
+          <input type="hidden" name="form-name" value="contact" />
+
+          <div>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Your Name</label>
+            <input type="text" name="name" id="name" required
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-purple focus:border-brand-purple block w-full p-2.5"
+              placeholder="John Doe">
+          </div>
+
+          <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
+            <input type="email" name="email" id="email" required
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-purple focus:border-brand-purple block w-full p-2.5"
+              placeholder="name@company.com">
+          </div>
+
+          <div>
+            <label for="subject" class="block mb-2 text-sm font-medium text-gray-900">Subject</label>
+            <input type="text" name="subject" id="subject" required
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-purple focus:border-brand-purple block w-full p-2.5"
+              placeholder="How can we help?">
+          </div>
+
+          <div>
+            <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Your Message</label>
+            <textarea name="message" id="message" rows="6" required
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-purple focus:border-brand-purple block w-full p-2.5"
+              placeholder="Tell us about your project..."></textarea>
+          </div>
+
+          <button type="submit"
+            class="text-white bg-gradient-to-r from-brand-orange to-brand-purple hover:from-brand-orange-dark hover:to-brand-purple-dark focus:ring-4 focus:ring-brand-purple-light/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Calendly Section -->
+      <div class="p-6 bg-gradient-to-br from-brand-orange-lighter/5 to-brand-purple-lighter/5 rounded-lg">
+        <h2 class="mb-4 text-3xl font-bold text-slate-700">{{ .Params.calendly.heading }}</h2>
+        <p class="mb-6 text-gray-500">{{ .Params.calendly.text }}</p>
+        <a href="{{ .Params.calendly.url }}" target="_blank"
+          class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-gradient-to-r from-brand-orange to-brand-purple hover:from-brand-orange-dark hover:to-brand-purple-dark focus:ring-4 focus:ring-brand-purple-light/50 rounded-lg">
+          {{ .Params.calendly.button_text }}
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+{{ end }}

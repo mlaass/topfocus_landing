@@ -1,16 +1,25 @@
-<header class="bg-white dark:bg-gray-900 shadow">
-  <nav class="container mx-auto px-4 py-6">
-    <div class="flex justify-between items-center">
-      <a href="/" class="text-xl font-bold text-gray-800 dark:text-white">
-        {{ .Site.Title }}
+<header>
+  <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+      <a href="/" class="flex items-center">
+        <img src="/img/logo_icon_v3_on_transp_color.svg" class="h-8 mr-2" alt="TopFocus Logo">
+        <span class="self-center text-xl font-semibold whitespace-nowrap text-slate-700">{{ .Site.Title }}</span>
       </a>
-
-      <div class="flex space-x-4">
-        {{ range .Site.Menus.main }}
-        <a href="{{ .PageRef }}" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
-          {{ .Name }}
-        </a>
-        {{ end }}
+      <div class="flex items-center lg:order-2">
+        <a href="https://calendly.com/moritzlaass"
+          class="text-white bg-gradient-to-r from-brand-orange to-brand-purple hover:from-brand-orange-dark hover:to-brand-purple-dark focus:ring-4 focus:ring-brand-purple-light/50 font-medium rounded-lg text-sm px-5 py-2.5 mr-2">Get
+          Started</a>
+      </div>
+      <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+        <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+          {{ range .Site.Menus.main }}
+          <li>
+            <a href="{{ .URL }}"
+              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-brand-orange lg:p-0">{{
+              .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
       </div>
     </div>
   </nav>

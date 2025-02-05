@@ -1,15 +1,50 @@
-<footer class="bg-white dark:bg-gray-900 shadow mt-8">
-	<div class="container mx-auto px-4 py-6">
-		<div class="flex justify-between items-center">
-			<div class="text-gray-600 dark:text-gray-300">
-				© {{ .Site.Params.footer.since }} {{ .Site.Copyright }}
+<footer class="bg-white">
+	<div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+		<div class="md:flex md:justify-between">
+			<div class="mb-6 md:mb-0">
+				<a href="/" class="flex items-center">
+					<img src="/img/logo_icon_v3_on_transp_color.svg" class="h-8 mr-2" alt="TopFocus Logo" />
+					<span class="self-center text-2xl font-semibold whitespace-nowrap text-slate-700">{{ .Site.Title }}</span>
+				</a>
 			</div>
-
-			{{ if .Site.Params.footer.poweredby }}
-			<div class="text-gray-600 dark:text-gray-300">
-				Powered by <a href="https://gohugo.io" class="hover:text-gray-900 dark:hover:text-white">Hugo</a>
+			<div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+				<div>
+					<h2 class="mb-6 text-sm font-semibold text-slate-700 uppercase">Company</h2>
+					<ul class="text-gray-500 font-medium">
+						<li class="mb-4">
+							<a href="/legal/imprint" class="hover:text-brand-orange">Imprint</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h2 class="mb-6 text-sm font-semibold text-slate-700 uppercase">Legal</h2>
+					<ul class="text-gray-500 font-medium">
+						<li class="mb-4">
+							<a href="/legal/privacy" class="hover:text-brand-orange">Privacy Policy</a>
+						</li>
+						<li>
+							<a href="/legal/terms" class="hover:text-brand-orange">Terms &amp; Conditions</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h2 class="mb-6 text-sm font-semibold text-slate-700 uppercase">Contact</h2>
+					<ul class="text-gray-500 font-medium">
+						<li class="mb-4">
+							<a href="/contact" class="hover:text-brand-orange">Contact Us</a>
+						</li>
+						<li>
+							<a href="mailto:contact@topfoc.us" class="hover:text-brand-orange">Email Us</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-			{{ end }}
+		</div>
+		<hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+		<div class="sm:flex sm:items-center sm:justify-between">
+			<span class="text-sm text-gray-500 sm:text-center">
+				© {{ now.Format "2006" }} {{ .Site.Copyright }}. All Rights Reserved.
+			</span>
 		</div>
 	</div>
 </footer>
