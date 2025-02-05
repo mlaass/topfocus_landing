@@ -44,7 +44,7 @@ disableKinds = ["RSS", "taxonomy"]
     weight = 2
   [[menu.main]]
     name = "Boilerplate"
-    url = "#boilerplate"
+    url = "/boilerplate"
     weight = 3
   [[menu.main]]
     name = "Contact"

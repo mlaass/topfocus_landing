@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const AssetsPlugin = require("assets-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   entry: {
@@ -57,6 +58,9 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.ProvidePlugin({
+      fetch: "imports-loader?imports=default:whatwg-fetch!exports-loader?exports=default:fetch!whatwg-fetch"
+    }),
     new AssetsPlugin({
       filename: "webpack.json",
       path: path.join(process.cwd(), "site/data"),
@@ -65,10 +69,15 @@ module.exports = {
     }),
 
     new CopyWebpackPlugin({
-      patterns: [{
-        from: "./src/fonts/",
-        to: "fonts/",
-      }]
+      patterns: [
+        {
+          from: "./site/static/",
+          to: "./",
+          globOptions: {
+            ignore: ["**/*.ico", "**/*.png", "**/site.webmanifest"]
+          }
+        }
+      ]
     }),
 
     new MiniCssExtractPlugin({

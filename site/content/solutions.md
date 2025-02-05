@@ -1,84 +1,51 @@
 ---
-title: "SaaS Optimization Solutions"
-description: "Transform your no-code SaaS operations with custom solutions that reduce costs while maintaining quality"
+title: "Solutions & Services"
+description: "Expert software development and optimization solutions for modern businesses"
 layout: solutions
 
 hero:
-  heading: "Transform Your SaaS Operations"
-  text: "We help no-code businesses reduce operational costs and improve efficiency through expert consultation and custom development solutions."
+  heading: "Build & Scale Your Digital Products"
+  text: "From custom development to SaaS optimization, we help businesses build efficient and scalable digital solutions."
   image: "/img/solutions-hero.png"
 
-process:
-  heading: "Our Approach"
-  text: "A systematic approach to optimize your SaaS operations while maintaining quality and reliability."
-  steps:
-    - name: "Analysis"
-      description: "Comprehensive review of your current stack and operational costs"
-      items:
-        - "No-code tool assessment"
-        - "Cost breakdown analysis"
-        - "Performance evaluation"
-        - "Scalability review"
-        - "Integration mapping"
-    - name: "Strategy"
-      description: "Develop a tailored optimization plan for your business"
-      items:
-        - "ROI calculations"
-        - "Priority identification"
-        - "Risk assessment"
-        - "Timeline planning"
-        - "Resource allocation"
-    - name: "Implementation"
-      description: "Execute the optimization plan with minimal disruption"
-      items:
-        - "Custom development"
-        - "Gradual migration"
-        - "Testing & validation"
-        - "Performance monitoring"
-        - "Team training"
-    - name: "Support"
-      description: "Ongoing maintenance and optimization of your solutions"
-      items:
-        - "24/7 monitoring"
-        - "Regular updates"
-        - "Performance tuning"
-        - "Security patches"
-        - "Technical support"
-
-benefits:
-  heading: "Why Choose Our Solutions"
-  text: "Our solutions are designed to provide long-term value and sustainable growth for your business."
+solutions:
+  heading: "Our Solutions"
+  text: "Comprehensive software solutions tailored to your business needs"
   items:
-    - name: "Cost Reduction"
-      description: "Significantly reduce your operational costs by replacing expensive no-code tools with custom solutions"
+    - name: "Custom Development"
+      description: "Build your digital products from scratch with modern technologies"
+      icon: "code"
+      features:
+        - "Web Applications"
+        - "Mobile Apps"
+        - "APIs & Integrations"
+        - "Database Design"
+        - "Cloud Infrastructure"
+    - name: "SaaS Optimization"
+      description: "Reduce costs and improve efficiency of your no-code operations"
       icon: "chart-bar"
-    - name: "Improved Performance"
-      description: "Enhance your application's speed, reliability, and user experience"
-      icon: "arrow-trending-up"
-    - name: "Better Scalability"
-      description: "Build a foundation that grows with your business without exponential cost increases"
-      icon: "arrows-expand"
-    - name: "Full Control"
-      description: "Own your technology stack and eliminate dependency on third-party no-code platforms"
-      icon: "command-line"
+      features:
+        - "Cost Analysis"
+        - "Custom Alternatives"
+        - "Migration Strategy"
+        - "Performance Optimization"
+        - "Maintenance Support"
+    - name: "Technical Consulting"
+      description: "Expert guidance for your technical decisions and architecture"
+      icon: "light-bulb"
+      features:
+        - "Architecture Review"
+        - "Technology Selection"
+        - "Security Assessment"
+        - "Scalability Planning"
+        - "Team Training"
 
 services:
   heading: "Development Services"
-  text: "Beyond optimization, we offer comprehensive development services to build and enhance your digital products."
+  text: "End-to-end development services to bring your ideas to life"
   items:
-    - name: "Backend Development"
-      description: "Custom backend solutions built with modern technologies"
-      features:
-        - "API Development & Integration"
-        - "Database Design & Optimization"
-        - "Authentication & Authorization"
-        - "Cloud Infrastructure Setup"
-        - "Performance Optimization"
-        - "Security Implementation"
-      image: "/img/backend-dev.png"
-      
     - name: "Frontend Development"
-      description: "Responsive and user-friendly frontend applications"
+      description: "Beautiful, responsive, and performant user interfaces"
       features:
         - "Modern Web Applications"
         - "Responsive Design"
@@ -88,7 +55,18 @@ services:
         - "Cross-browser Compatibility"
       image: "/img/frontend-dev.png"
       
-    - name: "Full-Stack Applications"
+    - name: "Backend Development"
+      description: "Robust and scalable server-side solutions"
+      features:
+        - "API Development"
+        - "Database Design"
+        - "Authentication Systems"
+        - "Cloud Infrastructure"
+        - "Performance Tuning"
+        - "Security Implementation"
+      image: "/img/backend-dev.png"
+      
+    - name: "Full-Stack Solutions"
       description: "Complete applications built from the ground up"
       features:
         - "Requirements Analysis"
@@ -99,28 +77,65 @@ services:
         - "Maintenance & Support"
       image: "/img/fullstack-dev.png"
 
+process:
+  heading: "Our Development Process"
+  text: "A proven approach to deliver high-quality solutions on time"
+  steps:
+    - name: "Discovery"
+      description: "Understanding your needs and requirements"
+      items:
+        - "Requirements gathering"
+        - "Technical assessment"
+        - "Solution planning"
+        - "Architecture design"
+        - "Timeline estimation"
+    - name: "Development"
+      description: "Building your solution with best practices"
+      items:
+        - "Agile development"
+        - "Regular updates"
+        - "Quality assurance"
+        - "Progress tracking"
+        - "Continuous feedback"
+    - name: "Deployment"
+      description: "Launching your solution securely"
+      items:
+        - "Testing & validation"
+        - "Performance optimization"
+        - "Security hardening"
+        - "Documentation"
+        - "Knowledge transfer"
+    - name: "Support"
+      description: "Ensuring long-term success"
+      items:
+        - "Monitoring"
+        - "Maintenance"
+        - "Updates & patches"
+        - "Performance tuning"
+        - "Technical support"
+
 cases:
   heading: "Success Stories"
-  text: "See how we've helped other businesses optimize their operations"
+  text: "Real results from our client projects"
   items:
     - name: "E-commerce Platform"
-      description: "Reduced monthly costs by 72% while improving order processing speed"
+      description: "Built a scalable e-commerce platform with advanced inventory management"
       metrics:
-        - label: "Cost Reduction"
-          value: "72%"
-        - label: "Performance Gain"
+        - label: "Processing Speed"
           value: "3x"
+        - label: "Cost Reduction"
+          value: "65%"
     - name: "SaaS Dashboard"
-      description: "Eliminated $2,500 monthly no-code tool costs with custom solution"
+      description: "Replaced no-code tools with custom solution for better performance"
       metrics:
         - label: "Annual Savings"
           value: "$30K"
-        - label: "Development Time"
-          value: "6 wks"
+        - label: "Load Time"
+          value: "0.8s"
 
 cta:
-  heading: "Ready to Optimize Your SaaS?"
-  text: "Book a free consultation to discuss your optimization opportunities."
+  heading: "Start Your Project"
+  text: "Book a free consultation to discuss your project requirements."
   buttons:
     - text: "Book Consultation"
       url: "https://calendly.com/moritzlaass"
