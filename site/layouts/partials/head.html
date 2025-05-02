@@ -1,18 +1,263 @@
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>{{ .Title }} | {{ $.Site.Title }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  {{ $stylesheet := .Site.Data.webpack.main }}
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description"
+    content="{{ .Description | default .Site.Params.description | default .Site.Params.description }}">
+
+  {{/* {{ $stylesheet := .Site.Data.webpack.main }}
   {{ with $stylesheet.css }}
   <link href="{{ relURL . }}" rel="stylesheet">
-  {{ end }}
+  {{ end }} */}}
 
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <base href="{{ $.Site.BaseURL }}">
 
-  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700" rel="stylesheet">
+  <style>
+    /* Apply Inter font globally */
+    body {
+      font-family: 'Inter', sans-serif;
+      --color-primary-rgb: 255, 117, 0;
+      /* rgb(255, 117, 0) - Orange */
+      --color-secondary-rgb: 172, 0, 255;
+      /* rgb(172, 0, 255) - Purple */
+      --color-primary-dark-rgb: 234, 88, 12;
+      /* Darker Orange */
+    }
+
+    /* Simple smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Add subtle animation for project/service cards on hover */
+    .card-hover:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease-out;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Style for the back link in project details */
+    .back-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      /* mt-6 */
+      padding: 0.5rem 1rem;
+      /* py-2 px-4 */
+      background-color: rgb(var(--color-primary-rgb));
+      /* Orange */
+      color: white;
+      border-radius: 0.375rem;
+      /* rounded-md */
+      text-decoration: none;
+      font-weight: 500;
+      /* font-medium */
+      transition: background-color 0.3s ease;
+    }
+
+    .back-link:hover {
+      background-color: rgb(var(--color-primary-dark-rgb));
+      /* Darker Orange */
+    }
+
+    /* Ensure SVGs scale correctly (Used by icon.html partial) */
+    .icon-placeholder svg {
+      width: 3rem;
+      /* w-12 */
+      height: 3rem;
+      /* h-12 */
+      margin-bottom: 1rem;
+      /* mb-4 */
+      color: rgb(var(--color-primary-rgb));
+      /* Orange */
+    }
+
+    /* --- Custom Color Overrides --- */
+
+    /* Primary Color Usage (Orange) */
+    .bg-primary {
+      background-color: rgb(var(--color-primary-rgb));
+    }
+
+    .text-primary {
+      color: rgb(var(--color-primary-rgb));
+    }
+
+    .border-primary {
+      border-color: rgb(var(--color-primary-rgb));
+    }
+
+    .hover\:bg-primary-dark:hover {
+      background-color: rgb(var(--color-primary-dark-rgb));
+    }
+
+    .hover\:text-primary-dark:hover {
+      color: rgb(var(--color-primary-dark-rgb));
+    }
+
+    .ring-primary:focus {
+      --tw-ring-color: rgb(var(--color-primary-rgb));
+    }
+
+    /* Secondary Color Usage (Purple) */
+    .bg-secondary {
+      background-color: rgb(var(--color-secondary-rgb));
+    }
+
+    .text-secondary {
+      color: rgb(var(--color-secondary-rgb));
+    }
+
+    .border-secondary {
+      border-color: rgb(var(--color-secondary-rgb));
+    }
+
+    /* Add hover state if needed */
+
+    /* Hero Section Gradient & Text */
+    .gradient-primary-secondary {
+      background-image: linear-gradient(to right, rgb(var(--color-primary-rgb)), rgb(var(--color-secondary-rgb)));
+    }
+
+    .hero-highlight {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* Adjust highlight color for readability on gradient */
+
+    /* Primary Button Styling */
+    .btn-primary {
+      background-color: rgb(var(--color-primary-rgb));
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: rgb(var(--color-primary-dark-rgb));
+    }
+
+    .btn-secondary-outline {
+      background-color: white;
+      color: rgb(var(--color-primary-rgb));
+      border: 1px solid rgb(var(--color-primary-rgb));
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-secondary-outline:hover {
+      background-color: rgba(var(--color-primary-rgb), 0.1);
+    }
+
+
+    /* Testimonial Section */
+    .testimonial-bg {
+      background-color: #4338ca;
+    }
+
+    /* Using a darker indigo for contrast */
+    .testimonial-card-bg {
+      background-color: #4f46e5;
+    }
+
+    /* Slightly lighter indigo */
+    .testimonial-border {
+      border-color: rgb(var(--color-primary-rgb));
+    }
+
+    /* Orange border for photo */
+    .testimonial-quote {
+      color: #e0e7ff;
+    }
+
+    /* Lighter text */
+    .testimonial-name {
+      color: white;
+    }
+
+    .testimonial-title {
+      color: #c7d2fe;
+    }
+
+    /* Lighter subtitle */
+
+    /* Process Section */
+    .process-step-circle {
+      background-color: rgba(var(--color-primary-rgb), 0.1);
+      /* Light orange */
+      color: rgb(var(--color-primary-rgb));
+      /* Orange */
+    }
+
+    .process-connector {
+      border-color: #e5e7eb;
+      /* gray-200 */
+    }
+
+    /* Team Section */
+    .team-title {
+      color: rgb(var(--color-primary-rgb));
+    }
+
+    /* Orange title */
+
+    /* Contact Section */
+    .contact-bg {
+      background-color: #312e81;
+    }
+
+    /* Darker indigo/purple */
+    .contact-label {
+      color: #e0e7ff;
+    }
+
+    /* Light text for labels */
+    .contact-input {
+      color: #1f2937;
+    }
+
+    /* Dark text for input */
+    .contact-button {
+      background-color: white;
+      color: rgb(var(--color-primary-rgb));
+      /* Orange text */
+    }
+
+    .contact-button:hover {
+      background-color: #f3f4f6;
+      /* gray-100 */
+    }
+
+    /* Footer */
+    .footer-bg {
+      background-color: #1f2937;
+    }
+
+    /* gray-800 */
+    .footer-text {
+      color: #9ca3af;
+    }
+
+    /* gray-400 */
+    .footer-link:hover {
+      color: white;
+    }
+
+    /* Ensure sufficient contrast for text on orange backgrounds */
+    .bg-primary .text-white {
+      color: white;
+    }
+
+    /* Case Study Detail Section Headings */
+    .case-study-detail-title {
+      color: rgb(var(--color-primary-rgb));
+    }
+  </style>
+
+
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
