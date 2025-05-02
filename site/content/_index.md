@@ -4,8 +4,8 @@
 # layout: "homepage" # Optional: Can specify a different layout file if needed
 
 hero:
-  title: "Build, Scale, and Innovate with Your Dedicated Technical Partner"
-  subtitle: "Partnering with Founders to Launch Scalable SaaS Platforms and AI Systems."
+  title: "Build, Scale & Innovate!"
+  subtitle: "Partnering with Founders to Launch Scalable SaaS Platforms, MVPs and AI Systems."
   button_text: "Discuss Your Project"
   button_url: "https://calendly.com/moritzlaass/consultation"
 
