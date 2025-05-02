@@ -79,13 +79,13 @@ case_studies:
       details_anchor: "#project-green-bookkeeper"
       tag_colors: ["green", "yellow", "red"]
 
-    - title: "DataPulse Insights Dashboard"
-      description: "Designed and built a custom web dashboard for tracking key business performance indicators (KPIs) and generating insights."
-      tags: ["KPI Visualization", "React & Supabase", "Actionable Insights"]
-      image: "https://placehold.co/600x400/3B82F6/FFFFFF?text=DataPulse+Insights"
-      image_alt: "DataPulse Insights Dashboard Screenshot"
-      details_anchor: "#project-marketing-dash"
-      tag_colors: ["blue", "red", "purple"]
+    # - title: "DataPulse Insights Dashboard"
+    #   description: "Designed and built a custom web dashboard for tracking key business performance indicators (KPIs) and generating insights."
+    #   tags: ["KPI Visualization", "React & Supabase", "Actionable Insights"]
+    #   image: "https://placehold.co/600x400/3B82F6/FFFFFF?text=DataPulse+Insights"
+    #   image_alt: "DataPulse Insights Dashboard Screenshot"
+    #   details_anchor: "#project-marketing-dash"
+    #   tag_colors: ["blue", "red", "purple"]
 
 testimonials:
   title: "Hear From Our Clients"
