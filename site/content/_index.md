@@ -79,13 +79,13 @@ case_studies:
       details_anchor: "#project-green-bookkeeper"
       tag_colors: ["green", "yellow", "red"]
 
-    # - title: "DataPulse Insights Dashboard"
-    #   description: "Designed and built a custom web dashboard for tracking key business performance indicators (KPIs) and generating insights."
-    #   tags: ["KPI Visualization", "React & Supabase", "Actionable Insights"]
-    #   image: "https://placehold.co/600x400/3B82F6/FFFFFF?text=DataPulse+Insights"
-    #   image_alt: "DataPulse Insights Dashboard Screenshot"
-    #   details_anchor: "#project-marketing-dash"
-    #   tag_colors: ["blue", "red", "purple"]
+    - title: "DataPulse Insights Dashboard"
+      description: "Designed and built a custom web dashboard for tracking key business performance indicators (KPIs) and generating insights."
+      tags: ["Visualization", "React", "Supabase", "Actionable Insights"]
+      image: "/img/portfolio/datapulse_case_study.png"
+      image_alt: "DataPulse Insights Dashboard Screenshot"
+      details_anchor: "#project-marketing-dash"
+      tag_colors: ["blue", "red", "purple"]
 
 testimonials:
   title: "Hear From Our Clients"
@@ -239,6 +239,30 @@ project_klang2:
     - "Integrated complex features including NFC and audio manipulation."
     - "Enabled user-generated content, fostering community engagement."
     - "Received positive feedback on app performance and user experience."
+
+project_marketing_dash:
+  title: "Project Details: DataPulse Insights Dashboard"
+  subtitle: "A custom web dashboard for tracking business KPIs and generating actionable insights."
+  screenshots:
+    - src: "/img/portfolio/datapulse_dashboard.png"
+      alt: "DataPulse Insights Overview Screenshot"
+    - src: "/img/portfolio/datapulse_case_study.png"
+      alt: "DataPulse Insights Chart Detail Screenshot"
+  description: |
+    DataPulse Insights is a bespoke web dashboard designed to provide clear visualizations of key performance indicators (KPIs) for a Marketing Agency. It connects to various data sources ( databases, APIs) and presents information through interactive charts and tables using Chart.js. The goal was to move beyond static reports and provide an intuitive, real-time overview of performance, enabling faster decision-making and identification of trends.
+
+    The project emphasized a clean user interface, responsive design for accessibility across devices, and efficient data handling for a smooth user experience. Supabase was utilized for backend services and database management.
+  tech_stack:
+    - "<strong>Frontend:</strong> React, Chart.js, Tailwind CSS"
+    - "<strong>Backend & Database:</strong> Supabase (PostgreSQL, Auth, Realtime)"
+    - "<strong>Infrastructure:</strong> Supabase Platform / Vercel"
+    - "<strong>APIs:</strong> Integration with relevant business data sources"
+  results:
+    - "Provided a centralized view of critical KPIs, reducing time spent gathering data manually."
+    - "Enabled interactive exploration of data through dynamic charts and filters."
+    - "Improved data accessibility for key stakeholders."
+    - "Successfully integrated with key data sources via Supabase."
+
 
 ---
 

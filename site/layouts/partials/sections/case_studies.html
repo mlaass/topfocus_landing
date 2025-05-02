@@ -4,7 +4,7 @@
     {{ with .title }}<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">{{ . | safeHTML }}</h2>
     {{ end }}
     {{ if .items }}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {{ range $index, $item := .items }}
       <div class="card-hover bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
         {{ with $item.image }}
