@@ -1,0 +1,50 @@
+{{ with .Params.case_studies }}
+<section id="case-studies" class="py-16 md:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{ with .title }}<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">{{ . | safeHTML }}</h2>
+    {{ end }}
+    {{ if .items }}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range $index, $item := .items }}
+      <div class="card-hover bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
+        {{ with $item.image }}
+        <img src="{{ . }}" alt="{{ $item.image_alt | default $item.title }}" class="w-full h-48 object-cover"
+          onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+        {{ end }}
+        <div class="p-6 flex flex-col flex-grow">
+          <h3 class="text-xl font-semibold mb-2 text-primary">{{ $item.title | safeHTML }}</h3>
+          {{ with $item.description }}<p class="text-gray-600 mb-4 text-sm flex-grow">{{ . | safeHTML }}</p>{{ end }}
+          {{ if $item.tags }}
+          <div class="mb-4 text-xs font-medium">
+            {{ range $tagIndex, $tag := $item.tags }}
+            {{ $color := index $item.tag_colors $tagIndex | default "gray" }} {{/* Default color if not specified */}}
+            <span class="inline-block bg-{{ $color }}-100 text-{{ $color }}-800 mr-2 px-2.5 py-0.5 rounded-full">{{ $tag
+              }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ with $item.details_anchor }}
+          <a href="{{ . }}" class="text-primary hover:text-primary-dark font-medium text-sm mt-auto">View Details
+            &rarr;</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{/* Note on Tag Colors:
+Tailwind CSS needs the full class name to be present in the source files to generate the
+corresponding CSS. Using dynamic class names like `bg-{{ $color }}-100` might require
+adjusting your Tailwind config (safelisting) or defining the color classes explicitly
+somewhere if they aren't generated automatically.
+
+Example safelist in tailwind.config.js:
+safelist: [
+{ pattern: /bg-(red|green|blue|indigo|purple|yellow)-100/ },
+{ pattern: /text-(red|green|blue|indigo|purple|yellow)-800/ },
+],
+*/}}

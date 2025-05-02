@@ -1,0 +1,55 @@
+{{ $project := .context }}
+{{ $id := .id }}
+
+<section id="{{ $id }}" class="py-16 md:py-24 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{ with $project.title }}<h2 class="text-3xl md:text-4xl font-bold mb-4 case-study-detail-title">{{ . | safeHTML }}
+    </h2>{{ end }}
+    {{ with $project.subtitle }}<p class="text-lg text-gray-600 mb-10">{{ . | safeHTML }}</p>{{ end }}
+
+    {{ with $project.screenshots }}
+    <div class="mb-12">
+      <h3 class="text-2xl font-semibold mb-6 text-gray-800">Screenshots</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {{ range . }}
+        <img src="{{ .src }}" alt="{{ .alt }}" class="rounded-lg shadow-md w-full object-cover"
+          onerror="this.onerror=null; this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';">
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ with $project.description }}
+    <div class="mb-12">
+      <h3 class="text-2xl font-semibold mb-4 text-gray-800">Project Description</h3>
+      <div class="text-gray-700 leading-relaxed space-y-4">
+        {{ . | $.Page.RenderString }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ with $project.tech_stack }}
+    <div class="mb-12">
+      <h3 class="text-2xl font-semibold mb-4 text-gray-800">Technology Stack</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        {{ range . }}
+        <li>{{ . | safeHTML }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ with $project.results }}
+    <div class="mb-12">
+      <h3 class="text-2xl font-semibold mb-4 text-gray-800">Results & KPIs</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        {{ range . }}
+        <li>{{ . | safeHTML }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    <a href="#case-studies" class="back-link">&larr; Back to Case Studies</a>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+{{ with .Params.services }}
+<section id="services" class="py-16 md:py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      {{ with .title }}<h2 class="text-3xl md:text-4xl font-bold text-gray-900">{{ . | safeHTML }}</h2>{{ end }}
+      {{ with .intro }}<p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">{{ . | safeHTML }}</p>{{ end }}
+    </div>
+    {{ if .items }}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range .items }}
+      <div class="card-hover bg-white p-8 rounded-lg shadow-md text-center">
+        <div class="icon-placeholder inline-block">
+          {{/* Call the icon partial - requires icon.html to be created */}}
+          {{ partial "icon.html" .icon_name }}
+        </div>
+        <h3 class="text-xl font-semibold mb-2 text-gray-900">{{ .title | safeHTML }}</h3>
+        <p class="text-gray-600 text-sm">{{ .description | safeHTML }}</p>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,39 @@
+{{ $bottom_cta := .Params.bottom_cta }}
+{{ $additional_testimonials := .Params.additional_testimonials }}
+
+<section id="bottom-cta" class="py-16 md:py-24 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{ with $bottom_cta }}
+    {{ $ctaData := . }}
+    <div class="text-center mb-12">
+      {{ with .title }}<h2 class="text-3xl md:text-4xl font-bold text-gray-900">{{ . | safeHTML }}</h2>{{ end }}
+      {{ with .text }}<p class="mt-4 text-lg text-gray-600">{{ . | safeHTML }}</p>{{ end }}
+      {{ with .button_url }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+        class="mt-8 inline-block btn-primary font-semibold py-3 px-8 rounded-lg shadow-md text-lg">{{
+        $ctaData.button_text | default "Learn More" }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ with $additional_testimonials }}
+    {{ if .items }}
+    <div class="mt-16 border-t pt-12">
+      {{ with .title }}<h3 class="text-2xl font-semibold text-center mb-10 text-gray-800">{{ . | safeHTML }}</h3>{{ end
+      }}
+      {{/* <p class="text-center text-gray-500 italic mb-10">(Please provide 2-3 additional testimonials)</p> */}}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {{ range .items }}
+        <div class="bg-gray-50 p-6 rounded-lg shadow">
+          <blockquote class="text-gray-600 italic mb-4 text-sm">"{{ .quote | safeHTML }}"</blockquote>
+          {{ with .name }}<p class="font-semibold text-gray-800 text-sm">{{ . }}</p>{{ end }}
+          {{ with .title }}<p class="text-xs text-gray-500">{{ . }}</p>{{ end }}
+          {{ with .result }}<p class="text-xs text-gray-500 mt-1">{{ . }}</p>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+    {{ end }}
+  </div>
+</section>

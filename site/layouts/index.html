@@ -1,6 +1,447 @@
-{{ define "main" }}
+{{/* {{ define "main" }}
 {{ partial "sections/hero" . }}
 {{ partial "sections/solutions" . }}
 {{ partial "sections/boilerplate" . }}
 {{ partial "sections/contact" . }}
-{{ end }}
+{{ end }} */}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  {{/* Note: Using Heroicons via JS module requires specific handling in Hugo,
+  the icon partial uses inline SVG which is generally more reliable with static site generators */}}
+  {{/*
+  <script type="module" src="https://unpkg.com/heroicons@2.1.1/24/outline/index.js"></script> */}}
+
+  {{ $title := .Title }}
+  {{ if not $title }}{{ $title = .Site.Title }}{{ end }}
+  <title>{{ $title }}</title>
+
+  <style>
+    /* Apply Inter font globally */
+    body {
+      font-family: 'Inter', sans-serif;
+      --color-primary-rgb: 255, 117, 0;
+      /* rgb(255, 117, 0) - Orange */
+      --color-secondary-rgb: 172, 0, 255;
+      /* rgb(172, 0, 255) - Purple */
+      --color-primary-dark-rgb: 234, 88, 12;
+      /* Darker Orange */
+    }
+
+    /* Simple smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Add subtle animation for project/service cards on hover */
+    .card-hover:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease-out;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Style for the back link in project details */
+    .back-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      /* mt-6 */
+      padding: 0.5rem 1rem;
+      /* py-2 px-4 */
+      background-color: rgb(var(--color-primary-rgb));
+      /* Orange */
+      color: white;
+      border-radius: 0.375rem;
+      /* rounded-md */
+      text-decoration: none;
+      font-weight: 500;
+      /* font-medium */
+      transition: background-color 0.3s ease;
+    }
+
+    .back-link:hover {
+      background-color: rgb(var(--color-primary-dark-rgb));
+      /* Darker Orange */
+    }
+
+    /* Ensure SVGs scale correctly (Used by icon.html partial) */
+    .icon-placeholder svg {
+      width: 3rem;
+      /* w-12 */
+      height: 3rem;
+      /* h-12 */
+      margin-bottom: 1rem;
+      /* mb-4 */
+      color: rgb(var(--color-primary-rgb));
+      /* Orange */
+    }
+
+    /* --- Custom Color Overrides --- */
+
+    /* Primary Color Usage (Orange) */
+    .bg-primary {
+      background-color: rgb(var(--color-primary-rgb));
+    }
+
+    .text-primary {
+      color: rgb(var(--color-primary-rgb));
+    }
+
+    .border-primary {
+      border-color: rgb(var(--color-primary-rgb));
+    }
+
+    .hover\:bg-primary-dark:hover {
+      background-color: rgb(var(--color-primary-dark-rgb));
+    }
+
+    .hover\:text-primary-dark:hover {
+      color: rgb(var(--color-primary-dark-rgb));
+    }
+
+    .ring-primary:focus {
+      --tw-ring-color: rgb(var(--color-primary-rgb));
+    }
+
+    /* Secondary Color Usage (Purple) */
+    .bg-secondary {
+      background-color: rgb(var(--color-secondary-rgb));
+    }
+
+    .text-secondary {
+      color: rgb(var(--color-secondary-rgb));
+    }
+
+    .border-secondary {
+      border-color: rgb(var(--color-secondary-rgb));
+    }
+
+    /* Add hover state if needed */
+
+    /* Hero Section Gradient & Text */
+    .gradient-primary-secondary {
+      background-image: linear-gradient(to right, rgb(var(--color-primary-rgb)), rgb(var(--color-secondary-rgb)));
+    }
+
+    .hero-highlight {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* Adjust highlight color for readability on gradient */
+
+    /* Primary Button Styling */
+    .btn-primary {
+      background-color: rgb(var(--color-primary-rgb));
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: rgb(var(--color-primary-dark-rgb));
+    }
+
+    .btn-secondary-outline {
+      background-color: white;
+      color: rgb(var(--color-primary-rgb));
+      border: 1px solid rgb(var(--color-primary-rgb));
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-secondary-outline:hover {
+      background-color: rgba(var(--color-primary-rgb), 0.1);
+    }
+
+
+    /* Testimonial Section */
+    .testimonial-bg {
+      background-color: #4338ca;
+    }
+
+    /* Using a darker indigo for contrast */
+    .testimonial-card-bg {
+      background-color: #4f46e5;
+    }
+
+    /* Slightly lighter indigo */
+    .testimonial-border {
+      border-color: rgb(var(--color-primary-rgb));
+    }
+
+    /* Orange border for photo */
+    .testimonial-quote {
+      color: #e0e7ff;
+    }
+
+    /* Lighter text */
+    .testimonial-name {
+      color: white;
+    }
+
+    .testimonial-title {
+      color: #c7d2fe;
+    }
+
+    /* Lighter subtitle */
+
+    /* Process Section */
+    .process-step-circle {
+      background-color: rgba(var(--color-primary-rgb), 0.1);
+      /* Light orange */
+      color: rgb(var(--color-primary-rgb));
+      /* Orange */
+    }
+
+    .process-connector {
+      border-color: #e5e7eb;
+      /* gray-200 */
+    }
+
+    /* Team Section */
+    .team-title {
+      color: rgb(var(--color-primary-rgb));
+    }
+
+    /* Orange title */
+
+    /* Contact Section */
+    .contact-bg {
+      background-color: #312e81;
+    }
+
+    /* Darker indigo/purple */
+    .contact-label {
+      color: #e0e7ff;
+    }
+
+    /* Light text for labels */
+    .contact-input {
+      color: #1f2937;
+    }
+
+    /* Dark text for input */
+    .contact-button {
+      background-color: white;
+      color: rgb(var(--color-primary-rgb));
+      /* Orange text */
+    }
+
+    .contact-button:hover {
+      background-color: #f3f4f6;
+      /* gray-100 */
+    }
+
+    /* Footer */
+    .footer-bg {
+      background-color: #1f2937;
+    }
+
+    /* gray-800 */
+    .footer-text {
+      color: #9ca3af;
+    }
+
+    /* gray-400 */
+    .footer-link:hover {
+      color: white;
+    }
+
+    /* Ensure sufficient contrast for text on orange backgrounds */
+    .bg-primary .text-white {
+      color: white;
+    }
+
+    /* Case Study Detail Section Headings */
+    .case-study-detail-title {
+      color: rgb(var(--color-primary-rgb));
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0 flex items-center space-x-2">
+          <a href="#hero">
+            {{/* Consider making logo path configurable via hugo.toml or _index.md */}}
+            <img class="h-10 w-auto" src="/img/logo_icon_v3_on_transp_color.svg" alt="Top Focus LLC Logo">
+          </a>
+          <span class="sm:inline text-sm text-black font-bold">Top Focus</span> {{/* Added font-bold */}}
+          <span class="hidden sm:inline text-xs text-gray-500 pt-1">Your Technical Partner for Web Apps, SaaS &
+            AI.</span>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            {{/* Static Nav Links - Could be made dynamic later */}}
+            <a href="#hero"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+            <a href="#services"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Services</a>
+            <a href="#case-studies"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Case
+              Studies</a>
+            <a href="#process"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Process</a>
+            <a href="#team"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Team</a>
+            <a href="#contact"
+              class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button type="button"
+            class="bg-gray-100 inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 ring-primary"
+            aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="sm:hidden text-center text-xs text-gray-500 pb-2">
+        Your Technical Partner for Web Apps, SaaS & AI.
+      </div>
+    </div>
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        {{/* Static Mobile Nav Links */}}
+        <a href="#hero"
+          class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="#services"
+          class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Services</a>
+        <a href="#case-studies"
+          class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Case
+          Studies</a>
+        <a href="#process"
+          class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Process</a>
+        <a href="#team"
+          class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Team</a>
+        <a href="#contact"
+          class="text-gray-600 hover:bg-gray-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  {{/* --- Main Content Sections --- */}}
+  {{ partial "sections/hero.html" . }}
+  {{ partial "sections/client_logos.html" . }}
+  {{ partial "sections/services.html" . }}
+  {{ partial "sections/case_studies.html" . }}
+  {{ partial "sections/testimonials.html" . }}
+  {{ partial "sections/process.html" . }}
+  {{ partial "sections/team.html" . }}
+  {{ partial "sections/bottom_cta.html" . }}
+  {{ partial "sections/contact.html" . }}
+
+
+  {{/* --- Detailed Project Sections (Rendered Dynamically) --- */}}
+  {{ $projects := slice
+  (dict "data" .Params.project_uverd "id" "project-uverd")
+  (dict "data" .Params.project_klang2 "id" "project-klang2")
+  (dict "data" .Params.project_green_bookkeeper "id" "project-green-bookkeeper")
+  }}
+
+  {{ range $projects }}
+  {{ if .data }}
+  {{ partial "sections/project_detail.html" (dict "context" .data "id" .id) }}
+  {{ end }}
+  {{ end }}
+
+
+  <footer class="footer-bg text-footer-text py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p>&copy; <span id="current-year"></span> {{ .Site.Copyright | default "Top Focus LLC" }}. All rights reserved.
+        </p>
+        <div class="mt-4 md:mt-0 space-x-4">
+          {{ with .Site.Params.privacyPolicyUrl }}<a href="{{ . }}" class="footer-link">Privacy Policy</a>{{ end }}
+          {{ with .Site.Params.termsServiceUrl }}<a href="{{ . }}" class="footer-link">Terms of Service</a>{{ end }}
+          {{/* Add placeholders if config not set */}}
+          {{ if not .Site.Params.privacyPolicyUrl }}<a href="#" class="footer-link">Privacy Policy</a>{{ end }}
+          {{ if not .Site.Params.termsServiceUrl }}<a href="#" class="footer-link">Terms of Service</a>{{ end }}
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple script to toggle mobile menu
+    const btn = document.querySelector('button[aria-controls="mobile-menu"]');
+    const menu = document.getElementById('mobile-menu');
+    const icons = btn.querySelectorAll('svg');
+
+    btn.addEventListener('click', () => {
+      const isOpen = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      // Toggle icons visibility based on menu state
+      icons[0].classList.toggle('hidden', !isOpen); // Bars icon
+      icons[0].classList.toggle('block', isOpen);
+      icons[1].classList.toggle('hidden', isOpen);  // X icon
+      icons[1].classList.toggle('block', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    // Close mobile menu when a link is clicked
+    const mobileLinks = document.querySelectorAll('#mobile-menu a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        // Check if the link is internal before closing
+        if (link.getAttribute('href').startsWith('#') && !menu.classList.contains('hidden')) {
+          menu.classList.add('hidden');
+          icons[0].classList.remove('hidden');
+          icons[0].classList.add('block');
+          icons[1].classList.add('hidden');
+          icons[1].classList.remove('block');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+        // If it's an external link, the default behavior will handle it
+      });
+    });
+
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for all anchor links pointing to IDs
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        // Ensure it's a link to an ID on the page and not just "#" or an external link
+        if (href.startsWith('#') && href.length > 1) {
+          const targetElement = document.querySelector(href);
+          if (targetElement) {
+            e.preventDefault();
+            // Optional: Close mobile menu if open before scrolling
+            if (!menu.classList.contains('hidden')) {
+              menu.classList.add('hidden');
+              icons[0].classList.remove('hidden'); icons[0].classList.add('block');
+              icons[1].classList.add('hidden'); icons[1].classList.remove('block');
+              btn.setAttribute('aria-expanded', 'false');
+            }
+            // Perform scroll
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

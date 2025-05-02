@@ -1,0 +1,18 @@
+{{ with .Params.client_logos }}
+<section id="client-logos" class="py-12 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{ with .intro }}<h3 class="text-center text-sm font-semibold text-gray-500 uppercase tracking-wider mb-8">{{ . }}
+    </h3>{{ end }}
+    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+      {{ if .logos }}
+      {{ range .logos }}
+      <img class="h-10 w-auto opacity-60 hover:opacity-100 transition duration-300" src="{{ .src | absURL }}"
+        alt="{{ .alt }}" onerror="this.onerror=null; ">
+      {{ end }}
+      {{ else }}
+
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
