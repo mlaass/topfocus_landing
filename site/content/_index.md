@@ -2,7 +2,9 @@
 # It is often better to set the title in hugo.toml, but can be set here too.
 # title: "Top Focus LLC - Your Technical Partner for Web Apps, SaaS & AI"
 # layout: "homepage" # Optional: Can specify a different layout file if needed
-
+head:
+  title: "Top Focus"
+  subtitle: "Build, Scale & Innovate!"
 hero:
   title: "Build, Scale & Innovate!"
   subtitle: "Partnering with Founders to Launch Scalable SaaS Platforms, MVPs and AI Systems."
@@ -133,7 +135,7 @@ additional_testimonials:
   title: "More Client Success Stories"
   grid_cols: "grid-cols-1 md:grid-cols-2"
   items:
-    - quote: "Great freelancer. Works autonomously towards the goal! Great communication! Great feedback! Will continue working with him."
+    - quote: "Great freelancer. Works autonomously towards the goal! Great communication! Great feedback!"
       name: "Pojan Dehnavi"
       title: "Owner @ Dehnavi Labs"
     - quote: "Had an excellent experience with Moritz. He took the time to understand the requirements and patiently made iterations as the project went along. Communication was prompt and the output as desired. Would recommend him highly."

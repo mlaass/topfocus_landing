@@ -2,6 +2,7 @@ baseurl = "/"
 languageCode = "en-us"
 languageLang = "en"
 title = "Top Focus"
+subtitle = "Build, Scale & Innovate!"
 author = "Moritz Laass"
 copyright = "Top Focus LLC"
 pagination.pagerSize = 10
