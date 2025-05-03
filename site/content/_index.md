@@ -90,12 +90,12 @@ case_studies:
 testimonials:
   title: "Hear From Our Clients"
   items:
-    - quote: "Had an excellent experience with Moritz. He took the time to understand the requirements and patiently made iterations as the project went along. Communication was prompt and the output as desired. Would recommend him highly."
-      name: "Aditya Bakshi"
-      title: "Editor @ Damned.com"
-      image: "/img/generic_avatar_placeholder.png"
-      image_alt: "Aditya Bakshi Photo Placeholder"
-  more_testimonials_note: "(More testimonials coming soon...)"
+    - quote: "We have worked together on a couple projects and he is a dream come true. He takes my fantastic unshaped ideas and brings them into reality.\n\nWe Have a great rapport, a great back and forth where we collaborate and he helps me sequence and prioritize. \n\nI feel big things are more possible when I work with Moritz."
+      name: "Tye Kirk"
+      title: "Owner @ The Green Bookkeeper"
+      image: "/img/landing/tye_kirk_headshot.jpg"
+      image_alt: "Tye Kirk Photo "
+  more_testimonials_note: ""
 
 process:
   title: "Our Collaborative Process"
@@ -131,14 +131,16 @@ bottom_cta:
 
 additional_testimonials:
   title: "More Client Success Stories"
+  grid_cols: "grid-cols-1 md:grid-cols-2"
   items:
-    - quote: "Working with Moritz was a fantastic experience. He possesses deep technical knowledge, communicates clearly and proactively, and consistently delivered high-quality work. He's a reliable partner who genuinely cares about the project's success."
-      name: "Tye Kirk"
-      title: "Founder @ The Green Bookkeeper"
-      # result: "" # Add specific result if available
     - quote: "Great freelancer. Works autonomously towards the goal! Great communication! Great feedback! Will continue working with him."
       name: "Pojan Dehnavi"
       title: "Owner @ Dehnavi Labs"
+    - quote: "Had an excellent experience with Moritz. He took the time to understand the requirements and patiently made iterations as the project went along. Communication was prompt and the output as desired. Would recommend him highly."
+      name: "Aditya Bakshi"
+      title: "Editor @ Damned.com"
+      image: "/img/generic_avatar_placeholder.png"
+      image_alt: "Aditya Bakshi Photo Placeholder"
       # result: ""
     # - quote: "Placeholder testimonial quote..."
     #   name: "[Client Name]"

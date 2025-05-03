@@ -22,7 +22,8 @@
       {{ with .title }}<h3 class="text-2xl font-semibold text-center mb-10 text-gray-800">{{ . | safeHTML }}</h3>{{ end
       }}
       {{/* <p class="text-center text-gray-500 italic mb-10">(Please provide 2-3 additional testimonials)</p> */}}
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div
+        class="grid {{ if .grid_cols }}grid-cols-{{ .grid_cols }}{{ else }}grid-cols-1 md:grid-cols-2{{ end }} gap-8">
         {{ range .items }}
         <div class="bg-gray-50 p-6 rounded-lg shadow">
           <blockquote class="text-gray-600 italic mb-4 text-sm">"{{ .quote | safeHTML }}"</blockquote>
