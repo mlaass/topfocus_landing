@@ -7,17 +7,7 @@
     </h2>{{ end }}
     {{ with $project.subtitle }}<p class="text-lg text-gray-600 mb-10">{{ . | safeHTML }}</p>{{ end }}
 
-    {{ with $project.screenshots }}
-    <div class="mb-12">
-      <h3 class="text-2xl font-semibold mb-6 text-gray-800">Screenshots</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {{ range . }}
-        <img src="{{ .src }}" alt="{{ .alt }}" class="rounded-lg shadow-md w-full object-cover"
-          onerror="this.onerror=null; this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';">
-        {{ end }}
-      </div>
-    </div>
-    {{ end }}
+    {{ partial "gallery.html" (dict "screenshots" $project.screenshots "id" $id "title" $project.title) }}
 
     {{ with $project.description }}
     <div class="mb-12">
