@@ -17,41 +17,55 @@
 </div>
 
 <!-- Modal Gallery -->
-<div id="imageModal_{{ $id }}" class="gallery-modal fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
-  <div class="relative max-w-full max-h-full p-4">
-    <!-- Project Title -->
-    <div class="absolute top-4 left-4 text-white text-lg font-semibold bg-black bg-opacity-50 px-3 py-1 rounded">
-      {{ $title }}
+<div id="imageModal_{{ $id }}" class="gallery-modal fixed inset-0 bg-black bg-opacity-90 z-50 hidden">
+  <!-- Modal Layout Grid -->
+  <div class="h-full flex flex-col">
+    
+    <!-- Top Bar: Title and Close Button -->
+    <div class="flex justify-between items-center p-4 h-16 flex-shrink-0">
+      <div class="text-white">
+        <h2 class="text-xl font-semibold">{{ $title }}</h2>
+      </div>
+      <button class="gallery-close text-white text-3xl font-bold hover:text-gray-300 leading-none">
+        &times;
+      </button>
     </div>
     
-    <!-- Close Button -->
-    <button class="gallery-close absolute top-4 right-4 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all duration-200">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-    
-    <!-- Navigation Buttons -->
-    <button class="gallery-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition-all duration-200">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-      </svg>
-    </button>
-    
-    <button class="gallery-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition-all duration-200">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-      </svg>
-    </button>
-    
-    <!-- Main Image -->
-    <img id="modalImage_{{ $id }}" class="gallery-image max-w-full max-h-full object-contain" src="" alt="">
-    
-    <!-- Image Counter -->
-    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-3 py-1 rounded">
-      <span id="imageCounter_{{ $id }}" class="gallery-counter">1 / 1</span>
+    <!-- Main Content Area: Navigation + Image -->
+    <div class="flex-1 flex items-center justify-center px-4 min-h-0">
+      
+      <!-- Left Navigation -->
+      <div class="flex-shrink-0 w-12 flex justify-center">
+        <button class="gallery-prev text-white text-4xl font-bold hover:text-gray-300 p-2">
+          &#8249;
+        </button>
+      </div>
+      
+      <!-- Image Container -->
+      <div class="flex-1 flex items-center justify-center px-4 h-full">
+        <img id="modalImage_{{ $id }}" 
+             class="gallery-image max-w-full max-h-full object-contain" 
+             src="" alt="">
+      </div>
+      
+      <!-- Right Navigation -->
+      <div class="flex-shrink-0 w-12 flex justify-center">
+        <button class="gallery-next text-white text-4xl font-bold hover:text-gray-300 p-2">
+          &#8250;
+        </button>
+      </div>
+      
     </div>
+    
+    <!-- Bottom Bar: Image Counter -->
+    <div class="flex justify-center p-4 h-16 flex-shrink-0">
+      <div class="text-white bg-black bg-opacity-50 px-3 py-1 rounded">
+        <span id="imageCounter_{{ $id }}" class="gallery-counter">1 / 1</span>
+      </div>
+    </div>
+    
   </div>
+</div>
   
   <!-- Hidden data for JavaScript -->
   <script type="application/json" class="gallery-data" data-gallery-id="{{ $id }}">

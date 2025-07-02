@@ -13,9 +13,8 @@
   {{ partial "footer" . }}
 
   <!-- Gallery JavaScript -->
-  <script src="{{ "js/gallery-test.js" | relURL }}"></script>
-  <script src="{{ "js/gallery.js" | relURL }}"></script>
-  
+  <script src="{{ " js/gallery.js" | relURL }}"></script>
+
   {{ with .Site.Data.webpack.main.js }}
   <script src="{{ relURL . }}"></script>
   {{ end }}
