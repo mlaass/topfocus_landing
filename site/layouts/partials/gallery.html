@@ -66,21 +66,20 @@
     
   </div>
 </div>
-  
-  <!-- Hidden data for JavaScript -->
-  <script type="application/json" class="gallery-data" data-gallery-id="{{ $id }}">
-    {
-      "id": "{{ $id }}",
-      "title": "{{ $title }}",
-      "screenshots": [
-        {{ range $index, $screenshot := $screenshots }}
-        {
-          "src": "{{ $screenshot.src }}",
-          "alt": "{{ $screenshot.alt }}"
-        }{{ if ne $index (sub (len $screenshots) 1) }},{{ end }}
-        {{ end }}
-      ]
-    }
-  </script>
-</div>
+
+<!-- Hidden data for JavaScript -->
+<script type="application/json" class="gallery-data" data-gallery-id="{{ $id }}">
+  {
+    "id": "{{ $id }}",
+    "title": "{{ $title }}",
+    "screenshots": [
+      {{ range $index, $screenshot := $screenshots }}
+      {
+        "src": "{{ $screenshot.src }}",
+        "alt": "{{ $screenshot.alt }}"
+      }{{ if ne $index (sub (len $screenshots) 1) }},{{ end }}
+      {{ end }}
+    ]
+  }
+</script>
 {{ end }}
